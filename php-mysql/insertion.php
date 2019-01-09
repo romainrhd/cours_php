@@ -9,7 +9,6 @@ if (!empty($_POST)) {
         'name' => $_POST['name'],
         'firstname' => $_POST['firstname']
     ]);
-    var_dump($result);die;
     header('Location: index.php');
 }
 require_once 'includes/head.php';
