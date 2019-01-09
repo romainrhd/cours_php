@@ -23,6 +23,7 @@ $personnes = $query->fetchAll(PDO::FETCH_ASSOC);
     </thead>
     <tbody>
         <?php
+        // On parcours notre tableau PHP qui contient nos personnes
         foreach ($personnes as $personne) {
         ?>
             <tr>
