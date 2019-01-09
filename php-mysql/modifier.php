@@ -1,5 +1,4 @@
 <?php
-require_once 'includes/head.php';
 require_once 'includes/connexion.php';
 
 if (!empty($_POST)) {
@@ -13,6 +12,7 @@ if (!empty($_POST)) {
     ]);
     header('Location: index.php');
 } else {
+    require_once 'includes/head.php';
     $query = $pdo->prepare('SELECT * FROM personnes WHERE id = :id');
     $query->execute([
         'id' => $_GET['id']
