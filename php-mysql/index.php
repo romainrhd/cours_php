@@ -30,7 +30,7 @@ $personnes = $query->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $personne['firstname']?></td>
                 <td><a href="afficher.php?id=<?= $personne['id'] ?>">Voir</a></td>
                 <td><a href="modifier.php?id=<?= $personne['id'] ?>">Modifier</a></td>
-                <td><a href="supprimer.php?id=<?= $personne['id'] ?>" onclick="confirm('Etes-vous sur de vouloir supprimer la personne ?')">Supprimer</a></td>
+                <td><a href="supprimer.php?id=<?= $personne['id'] ?>" onclick="return confirm('Etes-vous sur de vouloir supprimer la personne ?')">Supprimer</a></td>
             </tr>
         <?php
         }
