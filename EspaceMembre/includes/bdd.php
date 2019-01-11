@@ -1,4 +1,5 @@
 <?php
+session_start();
 try {
     $dsn_bdd = 'mysql:host=mysql;dbname=cours';
     $user_bdd = 'root';

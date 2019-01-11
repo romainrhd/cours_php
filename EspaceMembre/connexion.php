@@ -1,19 +1,26 @@
 <?php
 require_once 'includes/bdd.php';
 
+// On démarre la session
 session_start();
+// On teste si l'utilisateur est déjà connecté
 if (isset($_SESSION['id']) && isset($_SESSION['login'])) {
+    // On redirige sur la page d'accueil
     header('Location: index.php');
 }
 
+// On teste si le formulaire est submit
 if (!empty($_POST)){
+    // On prépare et execute la requête qui permet de récupérer l'utilisateur grâce au login passé dans le formulaire de connexion
     $req = $pdo->prepare('SELECT * FROM utilisateurs WHERE login = :login');
     $req->execute([
         'login' => $_POST['login']
     ]);
     $res = $req->fetch(PDO::FETCH_ASSOC);
+    // On teste si le mot de passe est bon
     $mdpCorrect = password_verify($_POST['motdepasse'], $res['motdepasse']);
 
+    // On teste si la requete de récupération de l'utilisateur à bien retourné un enregistrement
     if (!$res || !$mdpCorrect) {
         echo 'Mauvais login ou mot de passe !';
     } else {
